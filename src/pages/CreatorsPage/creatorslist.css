@@ -1,0 +1,31 @@
+.creator-link {
+  text-decoration: none;
+  color: inherit;
+  color: rgb(128, 77, 223);
+  font-weight: bold;
+  transition: font-size 0.3s;
+}
+.creator-link:hover {
+  font-size: 1.2em;
+  color: rgb(128, 77, 223);
+}
+
+.creator-container {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.creator-container .creator-label {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.creator-link:hover .creator-container {
+  transform: scale(1.05); /* Increase the size on hover */
+}
+
+.rounded-image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}/*# sourceMappingURL=creatorslist.css.map */

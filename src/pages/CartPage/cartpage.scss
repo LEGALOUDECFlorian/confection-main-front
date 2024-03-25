@@ -1,0 +1,61 @@
+@use "../../styles/vars";
+
+.quantity-controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+
+  span {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+.quantity-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-item {
+  background-color: white;
+  color: vars.$dark-grey;
+  border: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+      background-color: inherit;
+  }
+
+  i {
+      font-size: 1.4rem;
+  }
+}
+
+.confirm-order-btn__container {
+  text-align: right;
+
+  .confirm-order-btn {
+    margin: 0 auto;
+    display: inline-block;
+    color: white !important;
+  }
+}
+
+.cart__back-link {
+  display: inline-block;
+  margin-top: 10rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: vars.$color-secondary;
+
+  .chevron {
+    margin-right: 1rem;
+  }
+}

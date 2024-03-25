@@ -1,0 +1,38 @@
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  margin-bottom: 6em;
+  z-index: 10;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+}
+
+.back-to-top-button {
+  background-color: rgb(170, 120, 200);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px; /* Increase the font size */
+  font-weight: bold; /* Make the arrow bold */
+  outline: none;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-to-top-button span {
+  margin-right: 0;
+}
+
+.back-to-top-button:hover {
+  background-color: rgb(136, 75, 173);
+}/*# sourceMappingURL=backtotop.css.map */

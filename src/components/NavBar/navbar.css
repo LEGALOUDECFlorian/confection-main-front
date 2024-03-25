@@ -1,0 +1,40 @@
+@charset "UTF-8";
+.createurs-item {
+  margin: 1em 2em 1em 1em;
+  padding-right: 2em;
+  border-right: 1px solid;
+}
+
+.navigation-container {
+  display: flex; /* Afficher la navigation par défaut */
+}
+@media (max-width: 1390px) {
+  .navigation-container {
+    display: none; /* Masquer la navigation pour les écrans plus étroits */
+  }
+}
+
+.mobile-navbar {
+  display: none; /* Masquer le menu hamburger avec toutes les catégories par défaut */
+}
+@media (max-width: 1390px) {
+  .mobile-navbar {
+    display: block; /* Afficher le menu hamburger pour les écrans plus étroits */
+  }
+}
+.mobile-navbar .bars-icon-container {
+  background-color: inherit;
+  border: 1px solid darkgray;
+}
+
+.simple-dropdown .dropdown.icon {
+  display: none;
+}
+
+.custom-dropdown .dropdown.icon::before {
+  display: none;
+}
+
+.simple-dropdown:hover .menu {
+  display: block !important;
+}/*# sourceMappingURL=navbar.css.map */

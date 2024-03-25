@@ -1,0 +1,32 @@
+@use "../../styles/vars";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Set relative positioning for the pseudo-element */
+
+}
+
+.left-form, .right-form {
+ flex-basis: 100%; /* Changer la taille de base des formulaires */
+}
+
+@media (min-width: 1048px) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+
+  .form--divider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background-color: vars.$light-grey;
+    transform: translateX(-50%);
+  }
+
+}

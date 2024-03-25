@@ -1,0 +1,31 @@
+{
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": ["react", "react-hooks", "react-refresh"],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": true
+  },
+ // "linebreak-style": ["error", "unix"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "import/extensions": ["error", "always"],
+    "consistent-return": "off",
+    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+    "react/no-unescaped-entities": 0,
+    "quotes": ["error", "double"]
+  }
+}

@@ -1,0 +1,22 @@
+.ui.quantity-btn,
+.ui.quantity-btn:focus {
+  margin: 0;
+  background-color: white;
+  border: 1px solid rgb(201, 201, 201);
+}
+.ui.quantity-btn:hover,
+.ui.quantity-btn:focus:hover {
+  background-color: white;
+}
+
+.quantity__span {
+  display: inline-block;
+  text-align: center;
+  color: white;
+  background-color: rgb(170, 120, 200);
+  font-weight: 600;
+  padding: 0.6rem;
+  border-radius: 0.3rem;
+  width: 4rem;
+  margin: 0 1rem;
+}/*# sourceMappingURL=incrementDecrementBtn.css.map */

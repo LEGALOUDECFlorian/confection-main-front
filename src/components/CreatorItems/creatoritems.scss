@@ -1,0 +1,13 @@
+@use "../../styles/vars";
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: flex-start;
+    margin-left: 1em;
+
+    > a > button > i {
+        padding-left: 0.3em;
+    }
+}

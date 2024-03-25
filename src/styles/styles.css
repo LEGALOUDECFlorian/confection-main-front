@@ -1,0 +1,255 @@
+@charset "UTF-8";
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: rgb(170, 120, 200);
+}
+
+li {
+  list-style-type: none;
+}
+
+button,
+button:focus,
+.ui.button,
+.ui.button:focus,
+.ui.primary.button,
+.ui.primary.button:focus {
+  background-color: rgb(170, 120, 200);
+}
+button:hover,
+button:focus:hover,
+.ui.button:hover,
+.ui.button:focus:hover,
+.ui.primary.button:hover,
+.ui.primary.button:focus:hover {
+  background-color: rgb(136, 75, 173);
+}
+
+/* Style pour le main */
+main {
+  max-width: 1200px; /* Largeur maxinale pour les versions desktop */
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Style général pour les formulaires */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  /* Style pour les étiquettes des champs */
+  /* Style pour les champs de saisie de type texte, email et mot de passe */
+  /* Style pour les cases à cocher et les boutons radio */
+  /* Style pour le bouton de soumission */
+  /* Style pour les messages d'erreur */
+  /* Style pour les messages de succès */
+}
+form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+form input[type=text],
+form input[type=email],
+form input[type=password] {
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+}
+form input[type=checkbox],
+form input[type=radio] {
+  margin-bottom: 1rem; /* Espacement entre les cases à cocher et les boutons radio */
+  margin-right: 0.6rem; /* Espacement entre les cases à cocher et les boutons radio */
+}
+form .ui.button[type=submit],
+form button[type=submit] {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(170, 120, 200);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+form .ui.button[type=submit]:hover,
+form button[type=submit]:hover {
+  background-color: rgb(136, 75, 173);
+}
+form .error-message {
+  margin-top: 5px;
+  color: #dc3545;
+  font-size: 14px;
+}
+form .success-message {
+  margin-top: 5px;
+  color: #28a745;
+  font-size: 14px;
+}
+
+/* CSS pour la modal de confirmation */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Assure que la modal est au-dessus de tout le reste */
+  /* Animation pour un effet de fondu */
+  animation: fadeIn 0.3s ease-in-out;
+  /* Masque de l'arrière-plan lors du clic pour fermer la modal */
+  cursor: pointer;
+}
+
+/* Contenu de la modal */
+.modal-content {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Encadré pour le texte de la modal */
+.modal-text {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* Boutons de la modal */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Bouton de confirmation en vert */
+.modal-buttons button:first-child {
+  background-color: #28a745; /* Vert */
+  color: #fff;
+}
+
+/* Bouton d'annulation en rouge */
+.modal-buttons button:last-child {
+  background-color: #dc3545; /* Rouge */
+  color: #fff;
+}
+
+/* Effet d'opacité au survol */
+.modal-buttons button:hover {
+  opacity: 0.8;
+}
+
+/* Animation pour un effet d'apparition fluide */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Style pour le composant FormInscription */
+/* Style pour le composant FormLogin */
+/* Style pour les catégories */
+.category-container {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px; /* Espacement entre les catégories */
+  margin-top: 20px;
+}
+
+.category-image {
+  display: block; /* Pour gérer la marge automatique de l'image */
+  margin: 0 auto 10px; /* Marge automatique horizontale, pas de marge en haut, 10px de marge en bas */
+  border-radius: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 60%;
+  height: 19rem;
+}
+
+/* Style pour les catégories ET les sous-catégories */
+.category-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  width: 50%;
+  line-height: normal;
+  text-align: center;
+  text-transform: capitalize;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 100%; /* Ajustez la largeur du texte si nécessaire */
+  text-align: center; /* Centre le texte horizontalement */
+  line-height: 2.2rem;
+}
+
+/* Style pour les images arrondies de créateurs */
+.workshop-image {
+  display: block; /* Pour gérer la marge automatique de l'image */
+  margin: 0 auto 10px; /* Marge automatique horizontale, pas de marge en haut, 10px de marge en bas */
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 60%;
+  height: 19rem;
+  border-radius: 50%;
+}
+
+/* Style pour les aperçus d'articles ou de créateurs */
+.item-preview__container {
+  margin: 1rem;
+  display: flex;
+}
+.item-preview__container .item-image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 60%;
+  height: 19rem;
+  border-radius: 1rem;
+}
+.item-preview__container .item-preview-info {
+  padding: 0.5rem;
+}/*# sourceMappingURL=styles.css.map */

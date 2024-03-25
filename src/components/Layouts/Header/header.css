@@ -1,0 +1,17 @@
+.ui.inverted.menu {
+  background-color: rgb(170, 120, 200);
+  border-radius: 0;
+}
+
+.ui.header {
+  color: white !important;
+  display: flex;
+  align-items: center;
+  margin: 0.5em;
+  padding: 0.5em;
+  width: 100%;
+}
+
+.custom-dropdown .dropdown.icon::before {
+  display: none;
+}/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,10 @@
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: flex-start;
+  margin-left: 1em;
+}
+.buttons > a > button > i {
+  padding-left: 0.3em;
+}/*# sourceMappingURL=creatoritems.css.map */

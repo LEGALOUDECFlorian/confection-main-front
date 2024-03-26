@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Container,
   Segment,
@@ -8,8 +9,10 @@ import {
   Button,
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useCart } from "../../context/CartContext.jsx";
 import currencyFormat from "../../utils/currencyFormat.js";
+import ConfirmationModal from "../../components/Modal/confirmModal.jsx";
 import "./cartpage.scss";
 
 function CartWithItems() {
@@ -19,6 +22,8 @@ function CartWithItems() {
     decrementItemQuantity,
     incrementItemQuantity,
   } = useCart();
+  const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const calculateSubtotal = () => cart
     .reduce((total, item) => total + item.price * item.quantity, 0);
@@ -28,6 +33,27 @@ function CartWithItems() {
     const deliveryRate = 0.05; // frais de livraison à 5%
     const delivery = subtotal * deliveryRate;
     return subtotal + delivery;
+  };
+
+  const confirmationMessage = "Confirmer votre commande";
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const handleModalConfirm = () => {
+    setShowModal(false);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      if (!loading) {
+        toast.success("Commande validée");
+      }
+    }, 2000);
+  };
+
+  const handleCancelConfirm = () => {
+    setShowModal(false);
   };
 
   return (
@@ -106,8 +132,19 @@ function CartWithItems() {
               </div>
             </Segment>
             <div className="confirm-order-btn__container">
-              <Button className="confirm-order-btn">Valider ma commande</Button>
+              <Button className="confirm-order-btn" onClick={openModal}>Valider ma commande</Button>
             </div>
+
+            {/* Modal de confirmation */}
+            <ConfirmationModal
+              showModal={showModal}
+              confirmationMessage={confirmationMessage}
+              handleModalConfirm={handleModalConfirm}
+              handleCancelConfirm={handleCancelConfirm}
+              validateButton="Confirmer"
+              cancelButton="Non merci"
+            />
+
           </GridColumn>
         </Grid>
       </Container>
@@ -115,6 +152,10 @@ function CartWithItems() {
         <span className="chevron">&#10094; </span>
         Continuer mes achats
       </Link>
+      {/* Loader */}
+      {loading && (
+        <div className="ui active centered inline loader" />
+      )}
     </>
   );
 }

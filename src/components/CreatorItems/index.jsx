@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import currencyFormat from "../../utils/currencyFormat.js";
+import ConfirmationModal from "../Modal/confirmModal.jsx";
 import "./creatoritems.scss";
 
 function CreatorItems() {
@@ -109,17 +110,15 @@ function CreatorItems() {
       ))}
 
       {/* Modal de confirmation */}
-      {showModal && (
-      <div className="modal">
-        <div className="modal-content">
-          <p>{confirmationMessage}</p>
-          <div className="modal-buttons">
-            <button type="button" onClick={handleModalConfirm}>Confirmer</button>
-            <button type="button" onClick={handleCancelConfirm}>Annuler</button>
-          </div>
-        </div>
-      </div>
-      )}
+      {/* Modal de confirmation */}
+      <ConfirmationModal
+        showModal={showModal}
+        confirmationMessage={confirmationMessage}
+        handleModalConfirm={handleModalConfirm}
+        handleCancelConfirm={handleCancelConfirm}
+        validateButton="Confirmer"
+        cancelButton="Annuler"
+      />
     </div>
   );
 }

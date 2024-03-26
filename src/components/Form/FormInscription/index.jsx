@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import PasswordCheck from "./PasswordCheck/index.jsx";
+import ConfirmationModal from "../../Modal/confirmModal.jsx";
 
 function FormInscription() {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ function FormInscription() {
   };
 
   // Fonction pour gérer la confirmation dans la modal
-  const handleConfirmation = async () => {
+  const handleModalConfirm = async () => {
     try {
       const {
         lastname, firstname, email, password,
@@ -106,7 +107,7 @@ function FormInscription() {
   };
 
   // Fonction pour annuler la confirmation dans la modal
-  const handleCancelConfirmation = () => {
+  const handleCancelConfirm = () => {
     setShowModal(false);
   };
 
@@ -252,17 +253,14 @@ function FormInscription() {
       </form>
 
       {/* Modal de confirmation */}
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <p>{confirmationMessage}</p>
-            <div className="modal-buttons">
-              <button type="button" onClick={handleConfirmation}>Confirmer</button>
-              <button type="button" onClick={handleCancelConfirmation}>Annuler</button>
-            </div>
-          </div>
-        </div>
-      )}
+      <ConfirmationModal
+        showModal={showModal}
+        confirmationMessage={confirmationMessage}
+        handleModalConfirm={handleModalConfirm}
+        handleCancelConfirm={handleCancelConfirm}
+        validateButton="Confirmer"
+        cancelButton="Non merci"
+      />
     </>
   );
 }

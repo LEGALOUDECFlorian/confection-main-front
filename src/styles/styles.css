@@ -164,7 +164,7 @@ form .success-message {
 
 /* Bouton de confirmation en vert */
 .modal-buttons button:first-child {
-  background-color: #28a745; /* Vert */
+  background-color: #198932; /* Vert */
   color: #fff;
 }
 

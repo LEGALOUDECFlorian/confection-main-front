@@ -77,7 +77,7 @@ function Header() {
     // TODO: revoir le style du header dont div logo
     <header>
       <div className="ui inverted menu">
-        <Link to="/">
+        <Link to="/" role="link">
           <h2 className="ui header">
             <img src={Logo} alt="logo d'une machine à coudre" className="ui circular image enlarged-logo" />
             Confection Main
@@ -114,11 +114,11 @@ function Header() {
               }))}
             />
           ) : (
-            <Link to="/login" className="item">
+            <Link to="/login" className="item" aria-label="Go to the login page" role="link">
               <i className="user icon" />
             </Link>
           )}
-          <Link to="/panier" className="item cart">
+          <Link to="/panier" className="item cart" aria-label="Go to the cart page" role="link">
             <i className="shopping cart icon">
               {totalQuantity > 0 && <span className="cart-items-quantity">{totalQuantity}</span>}
             </i>

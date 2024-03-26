@@ -74,11 +74,17 @@ function Navbar() {
         <Icon name="bars" size="big" />
       </button>
       <Sidebar as={Menu} animation="overlay" direction="left" vertical visible={sidebarVisible}>
-        <Menu.Item as="a" onClick={toggleSidebar}>
+        <Menu.Item as="a" role="button" aria-label="Close menu" onClick={toggleSidebar}>
           <Icon name="close" />
         </Menu.Item>
         <div className="createurs-item">
-          <NavLink to="/createurs" className="item" onClick={toggleSidebar}>
+          <NavLink
+            to="/createurs"
+            className="item"
+            aria-label="All Creators"
+            activeClassName="active"
+            onClick={toggleSidebar}
+          >
             Créateurs
           </NavLink>
         </div>
@@ -89,12 +95,17 @@ function Navbar() {
             onMouseEnter={() => handleCategoryHover(index, category.name)}
             onMouseLeave={() => setActiveIndex(null)}
           >
-            <NavLink to={`/categories/${category.id}`} onClick={toggleSidebar}>
+            <NavLink to={`/categories/${category.id}`} onClick={toggleSidebar} role="menu">
               <Accordion fluid styled>
                 <Accordion.Title
                   active={activeIndex === index}
                   content={category.name}
                   index={index}
+                  aria-label={`Expand ${category.name} subcategories`}
+                  aria-haspopup="true"
+                  aria-expanded={activeIndex === index ? "true" : "false"}
+                  aria-controls={`subcategories-${index}`}
+                  role="button"
                   onClick={() => handleCategoryHover(index)}
                 />
                 <Accordion.Content active={activeIndex === index}>
@@ -107,9 +118,14 @@ function Navbar() {
                           <Menu.Item
                             key={subIndex}
                             as={Link}
+                            active={activeIndex === index}
+                            id={`subcategories-${index}`}
                             to={`/sous-categories/${subcategoryData.id}`}
                             state={{ categoryName: category.name }}
                             name={subcategory}
+                            aria-labelledby={`category-${index}`}
+                            aria-hidden={activeIndex === index ? "false" : "true"}
+                            role="menuitem"
                             onClick={toggleSidebar}
                           />
                         );
@@ -130,9 +146,9 @@ function Navbar() {
   // Render desktop navigation
   const renderDesktopNavigation = () => (
     <div className="navigation-container">
-      <div className="ui secondary pointing menu fluid">
+      <div className="ui secondary pointing menu fluid" role="menubar">
         <div className="createurs-item">
-          <NavLink to="/createurs" className="item">
+          <NavLink to="/createurs" aria-label="Navigate to all workshop page" role="link" className="item">
             Créateurs
           </NavLink>
         </div>
@@ -143,6 +159,9 @@ function Navbar() {
             className="item custom-dropdown-link"
             onMouseOver={() => handleCategoryHover(index, category.name)}
             onMouseOut={() => setActiveIndex(null)}
+            role="menuitem"
+            aria-label={`Navigate to ${category.name} category`}
+            aria-haspopup="true"
           >
             <Dropdown
               item
@@ -152,6 +171,8 @@ function Navbar() {
               style={{ textTransform: "capitalize" }}
               onMouseEnter={() => handleCategoryHover(index, category.name)}
               onMouseLeave={() => setActiveIndex(null)}
+              role="menuitem"
+              aria-label={`Simple dropdown for ${category.name}`}
             >
               <Dropdown.Menu>
                 {subcategories[category.name.toLowerCase()]?.map((subcategory, subIndex) => {
@@ -164,6 +185,9 @@ function Navbar() {
                         to={`/sous-categories/${subcategoryData.id}`}
                         state={{ categoryName: category.name }}
                         text={subcategory.charAt(0).toUpperCase() + subcategory.slice(1)}
+                        aria-label={`Navigate to ${subcategory.name} category`}
+                        aria-haspopup="true"
+                        role="menuitem"
                       />
                     );
                   }
@@ -179,7 +203,7 @@ function Navbar() {
   );
 
   return (
-    <nav>
+    <nav aria-label="Site Navigation" role="navigation">
       {renderDesktopNavigation()}
       {renderMobileNavigation()}
     </nav>

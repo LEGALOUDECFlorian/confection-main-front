@@ -78,10 +78,10 @@ function Header() {
     <header>
       <div className="ui inverted menu">
         <Link to="/" role="link">
-          <h2 className="ui header">
-            <img src={Logo} alt="logo d'une machine à coudre" className="ui circular image enlarged-logo" />
-            Confection Main
-          </h2>
+          <div className="ui header">
+            <img src={Logo} alt="logo d'une machine à coudre" />
+            <h2>Confection Main</h2>
+          </div>
         </Link>
         <div className="right menu">
           {searchVisible ? (

@@ -65,6 +65,10 @@ export function CartProvider({ children }) {
     }));
   }
 
+  function clearCart() {
+    setCart([]);
+  }
+
   //
   const contextValue = useMemo(() => ({
     cart,
@@ -73,6 +77,7 @@ export function CartProvider({ children }) {
     incrementItemQuantity,
     decrementItemQuantity,
     updateItemQuantity,
+    clearCart,
   }), [cart]);
 
   return (

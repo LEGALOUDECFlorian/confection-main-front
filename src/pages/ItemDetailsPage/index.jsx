@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import {
   Container, Grid, Segment, Image, Header, Button, List,
@@ -17,6 +17,7 @@ function ItemDetailsPage() {
   const [quantity, setQuantity] = useState(1);
   const { itemId } = useParams();
   const { addItemToCart } = useCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchItemAndCreator = async () => {
@@ -38,6 +39,7 @@ function ItemDetailsPage() {
 
   const handleAddToCart = () => {
     addItemToCart({ ...item, quantity });
+    navigate("/panier");
   };
 
   useEffect(() => {

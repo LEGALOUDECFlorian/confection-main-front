@@ -21,6 +21,7 @@ function CartWithItems() {
     removeItemFromCart,
     decrementItemQuantity,
     incrementItemQuantity,
+    clearCart,
   } = useCart();
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -48,6 +49,7 @@ function CartWithItems() {
       setLoading(false);
       if (!loading) {
         toast.success("Commande validée");
+        clearCart();
       }
     }, 2000);
   };

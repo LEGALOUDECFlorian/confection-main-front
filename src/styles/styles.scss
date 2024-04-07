@@ -1,12 +1,6 @@
 // Import des variables scss
 @use "./vars";
 
-:root {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html {
   overflow-x: hidden;
   max-width: 100%;
@@ -45,18 +39,21 @@ button:focus,
   }
 }
 
-body {
+#root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Style pour le main */
 main {
+  width: 100%;;
   max-width: 1200px; /* Largeur maxinale pour les versions desktop */
   margin: 0 auto;
   padding: 2rem;
-
 }
 
 /* Style général pour les formulaires */

@@ -79,7 +79,8 @@ function FormLogin() {
             value={formData.email}
             onChange={handleInputChange}
             autoComplete="username"
-            required
+            aria-label="Email"
+            aria-required
           />
         </label>
       </div>
@@ -94,7 +95,8 @@ function FormLogin() {
             value={formData.password}
             onChange={handleInputChange}
             autoComplete="current-password"
-            required
+            aria-label="Mot de passe"
+            aria-required
           />
         </label>
       </div>

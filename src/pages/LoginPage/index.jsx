@@ -5,14 +5,14 @@ import "./loginpage.scss";
 function LoginPage() {
   return (
     <div className="container form--divider">
-      <div className="left-form">
-        <h2>Se connecter</h2>
+      <section className="left-form" aria-labelledby="login-heading">
+        <h2 id="login-heading">Se connecter</h2>
         <FormLogin />
-      </div>
-      <div className="right-form">
-        <h2>S'inscrire</h2>
+      </section>
+      <section className="right-form" aria-labelledby="inscription-heading">
+        <h2 id="inscription-heading">S'inscrire</h2>
         <FormInscription />
-      </div>
+      </section>
     </div>
   );
 }

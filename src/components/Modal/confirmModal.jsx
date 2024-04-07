@@ -12,7 +12,7 @@ function ConfirmationModal({
     return null;
   }
   return (
-    <div className="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+    <dialog className="modal" aria-labelledby="modalTitle" aria-describedby="modalDescription">
       <div className="modal-content">
         <p id="modalDescription">{confirmationMessage}</p>
         <div className="modal-buttons" role="group" aria-label="Actions">
@@ -32,7 +32,7 @@ function ConfirmationModal({
           </button>
         </div>
       </div>
-    </div>
+    </dialog>
   );
 }
 

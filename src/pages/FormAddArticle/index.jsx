@@ -32,6 +32,10 @@ function FormAddArticle() {
   const [loading, setLoading] = useState(false);
   // Message de la modale
   const confirmationMessage = "Votre article a bien été ajouté. Souhaitez-vous ajouter un autre article ?";
+  const modalButtonMessage = {
+    validateButton: "Confirmer",
+    cancelButton: "Non merci",
+  };
 
   const fetchCategories = async () => {
     try {
@@ -124,7 +128,7 @@ function FormAddArticle() {
 
       const cloudinaryData = new FormData();
       cloudinaryData.append("picture", articleData.picture);
-      const cloudinaryRes = await axios.post("http://localhost:3000/upload", cloudinaryData);
+      const cloudinaryRes = await axios.post(`${import.meta.env.VITE_API_URL}/upload`, cloudinaryData);
       const imageUrl = cloudinaryRes.data.secure_url;
       const newArticleData = { ...articleData, picture: imageUrl };
 
@@ -154,6 +158,7 @@ function FormAddArticle() {
               value={articleData.name}
               onChange={handleInputChange}
               placeholder="Entrez le nom de l'article"
+              aria-label="Nom de l'article"
               aria-required
             />
           </label>
@@ -167,6 +172,7 @@ function FormAddArticle() {
               value={articleData.description}
               onChange={handleInputChange}
               placeholder="Entrez la description de l'article"
+              aria-label="Description de l'article"
               aria-required
             />
           </label>
@@ -180,6 +186,7 @@ function FormAddArticle() {
               name="item Picture"
               onChange={handlePictureChange}
               accept="image/*"
+              aria-label="Image de l'article"
               aria-required
             />
           </label>
@@ -201,6 +208,7 @@ function FormAddArticle() {
               value={articleData.price}
               onChange={handleInputChange}
               placeholder="Entrez le prix de l'article"
+              aria-label="Prix de l'article"
               aria-required
             />
           </label>
@@ -215,6 +223,7 @@ function FormAddArticle() {
               value={articleData.material}
               onChange={handleInputChange}
               placeholder="Entrez la matière de fabrication de l'article"
+              aria-label="Matière de l'article"
               aria-required
             />
           </label>
@@ -241,6 +250,8 @@ function FormAddArticle() {
               }))}
               onChange={handleCategoryChange}
               value={articleData.category_id}
+              aria-label="Catégorie de l'article"
+              aria-required
             />
           </label>
         </Form.Field>
@@ -259,6 +270,8 @@ function FormAddArticle() {
             onChange={handleSubcategoryChange}
             value={articleData.subcategory_id}
             disabled={!articleData.category_id}
+            aria-label="Sous-catégorie de l'article"
+            aria-required
           />
         </Form.Field>
         <Button
@@ -275,8 +288,8 @@ function FormAddArticle() {
         confirmationMessage={confirmationMessage}
         handleModalConfirm={handleModalConfirm}
         handleCancelConfirm={handleCancelConfirm}
-        validateButton="Confirmer"
-        cancelButton="Non merci"
+        validateButton={modalButtonMessage.validateButton}
+        cancelButton={modalButtonMessage.cancelButton}
       />
 
       {/* Loader */}

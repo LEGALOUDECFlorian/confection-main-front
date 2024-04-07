@@ -31,6 +31,11 @@ function FormInscription() {
     "Veuillez confirmer votre inscription.",
   );
 
+  const modalButtonMessage = {
+    validateButton: "Confirmer",
+    cancelButton: "Retour",
+  };
+
   // Fonction pour gérer les changements dans les champs de saisie
   const handleInputChange = (e) => {
     const { name, value, checked } = e.target;
@@ -73,15 +78,15 @@ function FormInscription() {
       const newFormData = {
         lastname, firstname, email, password,
       };
-      // Effectuer une requête POST à l'API pour créer un nouvel utilisateur
+      // Effectue une requête POST à l'API pour créer un nouvel utilisateur
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/users`,
         newFormData,
       );
-      // Log des données du formulaire
-      const userId = response.data.id; // Récupérer l'ID de l'utilisateur créé
 
-      // Réinitialiser le formulaire après soumission
+      const userId = response.data.id;
+
+      // Réinitialise le formulaire après soumission
       setFormData({
         lastname: "",
         firstname: "",
@@ -92,10 +97,9 @@ function FormInscription() {
         confirmConditions: false,
       });
 
-      // Cacher la modal après confirmation
+      // Cache la modal après confirmation
       setShowModal(false);
 
-      // Logique conditionnelle basée sur le rôle sélectionné
       if (formData.role === "client") {
         toast.success("Inscription réussie. Vous pouvez maintenant vous connecter.");
       } else if (formData.role === "creator") {
@@ -114,7 +118,7 @@ function FormInscription() {
   // Rendu du composant de formulaire
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} aria-label="Formulaire d'inscription">
         {/* Champ de saisie pour le nom */}
         <div>
           <label htmlFor="lastname">
@@ -127,7 +131,8 @@ function FormInscription() {
               placeholder="Nom"
               value={formData.lastname}
               onChange={handleInputChange}
-              required
+              aria-label="Nom"
+              aria-required
             />
           </label>
         </div>
@@ -142,7 +147,8 @@ function FormInscription() {
               placeholder="Prénom"
               value={formData.firstname}
               onChange={handleInputChange}
-              required
+              aria-label="Prénom"
+              aria-required
             />
           </label>
         </div>
@@ -158,7 +164,8 @@ function FormInscription() {
               value={formData.email}
               onChange={handleInputChange}
               autoComplete="email"
-              required
+              aria-label="Email"
+              aria-required
             />
           </label>
         </div>
@@ -176,7 +183,8 @@ function FormInscription() {
               onFocus={() => setIsPasswordInputActive(true)}
               onBlur={() => setIsPasswordInputActive(false)}
               autoComplete="current-password"
-              required
+              aria-label="Mot de passe"
+              aria-required
             />
           </label>
         </div>
@@ -194,7 +202,8 @@ function FormInscription() {
               onFocus={() => setIsConfirmPasswordInputActive(true)}
               onBlur={() => setIsConfirmPasswordInputActive(false)}
               autoComplete="current-password"
-              required
+              aria-label="Confirmer le mot de passe"
+              aria-required
             />
           </label>
         </div>
@@ -215,6 +224,7 @@ function FormInscription() {
               value="client"
               checked={formData.role === "client"}
               onChange={handleInputChange}
+              aria-labelledby="inscriptionClientLabel"
               required
             />
             Je suis client
@@ -229,6 +239,7 @@ function FormInscription() {
               value="creator"
               checked={formData.role === "creator"}
               onChange={handleInputChange}
+              aria-labelledby="inscriptionCreatorLabel"
               required
             />
             Je suis créateur
@@ -243,6 +254,7 @@ function FormInscription() {
               name="confirmConditions"
               checked={formData.confirmConditions}
               onChange={handleInputChange}
+              aria-labelledby="confirmConditionsLabel"
               required
             />
             Accepter les conditions d'utilisation.
@@ -258,8 +270,8 @@ function FormInscription() {
         confirmationMessage={confirmationMessage}
         handleModalConfirm={handleModalConfirm}
         handleCancelConfirm={handleCancelConfirm}
-        validateButton="Confirmer"
-        cancelButton="Non merci"
+        validateButton={modalButtonMessage.validateButton}
+        cancelButton={modalButtonMessage.cancelButton}
       />
     </>
   );

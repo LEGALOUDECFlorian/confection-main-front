@@ -135,16 +135,12 @@ form {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Assure que la modal est au-dessus de tout le reste */
-
-  /* Animation pour un effet de fondu */
+  z-index: 9999;
   animation: fadeIn 0.3s ease-in-out;
-
-  /* Masque de l'arrière-plan lors du clic pour fermer la modal */
   cursor: pointer;
 }
 
@@ -156,14 +152,6 @@ form {
   max-width: 400px;
   width: 100%;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Encadré pour le texte de la modal */
-.modal-text {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 20px;
 }
 
 /* Boutons de la modal */
@@ -181,21 +169,27 @@ form {
   cursor: pointer;
 }
 
-/* Bouton de confirmation en vert */
+/* Bouton de confirmation*/
 .modal-buttons button:first-child {
-  background-color: #28a745; /* Vert */
+  background-color: #28a745;
   color: #fff;
 }
 
-/* Bouton d'annulation en rouge */
+/* Bouton d'annulation */
 .modal-buttons button:last-child {
-  background-color: #dc3545; /* Rouge */
+  background-color: #dc3545;
   color: #fff;
 }
 
 /* Effet d'opacité au survol */
 .modal-buttons button:hover {
   opacity: 0.8;
+}
+
+@media ( max-width: 456px) {
+  .modal-content {
+    margin: 0 0.5rem 0 0.5rem;
+  }
 }
 
 /* Positionnement du loader page ajout article */

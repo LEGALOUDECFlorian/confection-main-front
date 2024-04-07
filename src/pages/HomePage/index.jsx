@@ -16,7 +16,7 @@ function HomePage() {
         `${import.meta.env.VITE_API_URL}/categories`,
       );
       setCategories(categoriesResponse.data);
-      // Récupérer les 6 derniers créateurs inscrits
+      // Récupére les 6 derniers créateurs inscrits
       const workshopResponse = await axios.get(`${import.meta.env.VITE_API_URL}/createurs/derniers-inscrits`);
       setCreators(workshopResponse.data);
     } catch (error) {
@@ -40,7 +40,7 @@ function HomePage() {
         ) : "Bienvenue sur Confection Main"}
       </h1>
 
-      <section>
+      <div>
         <div className="ui three column doubling stackable grid container">
           {categories.map((category) => (
             <div key={category.id} className="column">
@@ -57,7 +57,7 @@ function HomePage() {
             </div>
           ))}
         </div>
-      </section>
+      </div>
 
       <Banner />
 

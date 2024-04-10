@@ -203,7 +203,7 @@ function Navbar() {
   );
 
   return (
-    <nav aria-label="Site Navigation" role="navigation">
+    <nav role="navigation" aria-label="Site Navigation">
       {renderDesktopNavigation()}
       {renderMobileNavigation()}
     </nav>

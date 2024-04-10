@@ -128,7 +128,7 @@ function FormAddArticle() {
 
       const cloudinaryData = new FormData();
       cloudinaryData.append("picture", articleData.picture);
-      const cloudinaryRes = await axios.post(`${import.meta.env.VITE_API_URL}/upload`, cloudinaryData);
+      const cloudinaryRes = await axios.post(`${import.meta.env.VITE_API_URL2}/upload`, cloudinaryData);
       const imageUrl = cloudinaryRes.data.secure_url;
       const newArticleData = { ...articleData, picture: imageUrl };
 

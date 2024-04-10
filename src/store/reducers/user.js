@@ -55,6 +55,12 @@ export const checkAuth = createAsyncThunk(
   "user/checkAuth",
   async () => {
     const token = localStorage.getItem("accessToken");
+    if (!token) {
+      const newState = {
+        isLoggedIn: false,
+      };
+      return newState;
+    }
     if (token) {
       const id = localStorage.getItem("id");
       // Token d'accès pour authentifier les requêtes API
@@ -147,11 +153,12 @@ const userReducer = createReducer(initialState, (builder) => {
       state.error = null;
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
+      localStorage.removeItem("decodedToken");
       localStorage.removeItem("id");
       localStorage.removeItem("email");
       localStorage.removeItem("lastname");
       localStorage.removeItem("firstname");
-      localStorage.removeItem("worshopId");
+      localStorage.removeItem("workshopId");
       localStorage.removeItem("role");
       console.log("Utilisateur déconnecté avec succès.");
     })

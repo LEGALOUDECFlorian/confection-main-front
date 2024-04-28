@@ -62,26 +62,23 @@ function WorkshopForm() {
       toast.error(
         "Veuillez remplir tous les champs du formulaire et sélectionner une image.",
       );
-      return; // Arrêtez l'exécution de la fonction handleSubmit ici
+      return;
     }
 
     try {
       // Envoi de l'image à Cloudinary
       const cloudinaryData = new FormData();
-      console.log("log 1:", formData.picture);
       cloudinaryData.append("picture", formData.picture);
 
       const cloudinaryRes = await axios.post(
-        "http://localhost:3000/upload",
+        `${import.meta.env.VITE_API_URL}/cloudinary/upload`,
         cloudinaryData,
       );
 
       // Récupération de l'URL de l'image depuis la réponse de Cloudinary
       const imageUrl = cloudinaryRes.data.secure_url;
-      console.log("log 2:imageUrl:", imageUrl);
       // Ajout de l'URL de l'image au formulaire
       const newFormData = { ...formData, picture: imageUrl };
-      console.log("log 3:formData.picture:", formData.picture);
       // Effectuer une requête POST à l'API pour créer un nouveau créateur
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/createurs`,

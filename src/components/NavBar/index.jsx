@@ -82,7 +82,7 @@ function Navbar() {
             to="/createurs"
             className="item"
             aria-label="All Creators"
-            activeClassName="active"
+            activeclassname="active"
             onClick={toggleSidebar}
           >
             Créateurs

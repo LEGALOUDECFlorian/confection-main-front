@@ -125,10 +125,10 @@ function PersonalInformation() {
           </label>
         </Form.Field>
         <Form.Field>
-          <label htmlFor="phone">
+          <label htmlFor="userPhone">
             Numéro de téléphone
             <Input
-              id="phone"
+              id="userPhone"
               type="text"
               name="phoneNumber"
               value={userData.phone_number || ""}
@@ -140,10 +140,10 @@ function PersonalInformation() {
       </Form.Group>
       <Form.Group widths="equal">
         <Form.Field>
-          <label htmlFor="email">
+          <label htmlFor="userEmail">
             Adresse E-mail
             <Input
-              id="email"
+              id="userEmail"
               type="email"
               name="email"
               value={userData.email || ""}
@@ -198,10 +198,10 @@ function PersonalInformation() {
       <h2>Adresse</h2>
       <Form.Group widths="equal">
         <Form.Field>
-          <label htmlFor="address">
+          <label htmlFor="userAddress">
             Rue
             <Input
-              id="address"
+              id="userAddress"
               type="text"
               name="address"
               value={userData.address || ""}
@@ -211,10 +211,10 @@ function PersonalInformation() {
           </label>
         </Form.Field>
         <Form.Field>
-          <label htmlFor="zipcode">
+          <label htmlFor="userZipcode">
             Code Postal
             <Input
-              id="zipcode"
+              id="userZipcode"
               type="text"
               name="zipcode"
               value={userData.zipcode || ""}
@@ -224,9 +224,9 @@ function PersonalInformation() {
           </label>
         </Form.Field>
         <Form.Field>
-          <label htmlFor="city">Ville</label>
+          <label htmlFor="userCity">Ville</label>
           <Input
-            id="city"
+            id="userCity"
             type="text"
             name="city"
             value={userData.city || ""}

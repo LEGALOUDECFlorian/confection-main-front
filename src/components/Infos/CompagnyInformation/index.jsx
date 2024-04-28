@@ -65,7 +65,6 @@ function CompagnyInformation() {
           `${import.meta.env.VITE_API_URL}/users/${userId}/createur`,
 
         );
-        console.log("Données de l'API :", response.data);
         // Mettre à jour les données de l'entreprise dans l'état local
         setCompanyData(response.data);
       } catch (error) {
@@ -78,7 +77,6 @@ function CompagnyInformation() {
   // ne s'exécute qu'une fois après le montage du composant
 
   const workshopId = companyData.workshop_id;
-  console.log("workshopId:", workshopId);
   // Fonction pour soumettre les modifications
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -96,7 +94,6 @@ function CompagnyInformation() {
       };
 
       // Envoi les nouvelles valeurs au backend
-      console.log("updateData:", updateData);
       await axios.patch(
         `${import.meta.env.VITE_API_URL}/createurs/${workshopId}`,
         updateData,
@@ -142,10 +139,10 @@ function CompagnyInformation() {
         </Form.Field>
 
         <Form.Field>
-          <label htmlFor="siretNumber" style={{ fontWeight: "bold" }}>
+          <label htmlFor="workshopSiretNumber" style={{ fontWeight: "bold" }}>
             Numéro SIRET
             <Input
-              id="siretNumber"
+              id="workshopSiretNumber"
               type="text"
               placeholder="Numéro SIRET"
               value={companyData.registration_number}
@@ -158,10 +155,10 @@ function CompagnyInformation() {
           </label>
         </Form.Field>
         <Form.Field>
-          <label htmlFor="siretNumber" style={{ fontWeight: "bold" }}>
+          <label htmlFor="workshopPhone" style={{ fontWeight: "bold" }}>
             Numéro de téléphone
             <Input
-              id="siretNumber"
+              id="workshopPhone"
               type="text"
               placeholder="Numéro de téléphone"
               value={companyData.workshop_phone_number}
@@ -177,10 +174,10 @@ function CompagnyInformation() {
       <div>
         <h2>Adresse e-mail pro</h2>
         <Form.Field>
-          <label htmlFor="siretNumber" style={{ fontWeight: "bold" }}>
+          <label htmlFor="workshopEmail" style={{ fontWeight: "bold" }}>
             E-mail Pro
             <Input
-              id="siretNumber"
+              id="workshopEmail"
               type="email"
               placeholder="E-mail Pro"
               value={companyData.workshop_email}

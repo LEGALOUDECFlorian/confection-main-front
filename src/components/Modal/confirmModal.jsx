@@ -41,8 +41,8 @@ export default ConfirmationModal;
 ConfirmationModal.propTypes = {
   showModal: PropTypes.bool.isRequired,
   confirmationMessage: PropTypes.string.isRequired,
-  handleModalConfirm: PropTypes.bool.isRequired,
-  handleCancelConfirm: PropTypes.bool.isRequired,
+  handleModalConfirm: PropTypes.func.isRequired,
+  handleCancelConfirm: PropTypes.func.isRequired,
   validateButton: PropTypes.string.isRequired,
   cancelButton: PropTypes.string.isRequired,
 };
